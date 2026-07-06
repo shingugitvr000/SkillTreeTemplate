@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee84c147c3bc0645bbbe1912394bcf7, type: 3}
+  m_Name: New Trait Tree Data
+  m_EditorClassIdentifier: Assembly-CSharp::TraitTreeData
+  treeName: 
+  nodes:
+  - id: click_01
+    displayName: "\uD074\uB9AD \uAC15\uD654 I"
+    description: "\uD074\uB9AD \uC218\uC775\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+    icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    boardPosition: {x: -300, y: 0}
+    cost: 1
+    prerequisiteIds: []
+    effects:
+    - effectType: 0
+      value: 1.1
+  - id: click_02
+    displayName: "\uD074\uB9AD \uAC15\uD654 II"
+    description: "\uD074\uB9AD\uC73C\uB85C \uC5BB\uB294 \uC790\uC6D0\uC774 25% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    boardPosition: {x: -100, y: 0}
+    cost: 2
+    prerequisiteIds:
+    - click_01
+    effects:
+    - effectType: 0
+      value: 1.25
+  - id: auto_01
+    displayName: "\uC790\uB3D9 \uC0DD\uC0B0 I"
+    description: "\uC790\uB3D9\uC73C\uB85C \uC790\uC6D0\uC744 \uC0DD\uC0B0\uD569\uB2C8\uB2E4."
+    icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    boardPosition: {x: 100, y: 100}
+    cost: 3
+    prerequisiteIds:
+    - click_02
+    effects:
+    - effectType: 0
+      value: 1.25

@@ -13,14 +13,16 @@ public class TraitNodeView : MonoBehaviour
 
     private TraitNodeData data;
     private TraitTreeRuntime treeRuntime;
+    private TraitTreeBoard board;
 
     public string Id => data.id;
     public RectTransform RectTransform => transform as RectTransform;
 
-    public void Init(TraitNodeData nodeData, TraitTreeRuntime runtime)
+    public void Init(TraitNodeData nodeData, TraitTreeRuntime runtime, TraitTreeBoard board)
     {
         data = nodeData;
         treeRuntime = runtime;
+        this.board = board;
 
         iconImage.sprite = data.icon;
         costText.text = data.cost.ToString();
@@ -33,8 +35,12 @@ public class TraitNodeView : MonoBehaviour
 
     private void OnClick()
     {
-        treeRuntime.TryPurchase(data.id);
-        Refresh();
+        bool success = treeRuntime.TryPurchase(data.id);
+
+        if (success)
+        {
+            board.RefreshAllNodes();
+        }
     }
 
     public void Refresh()

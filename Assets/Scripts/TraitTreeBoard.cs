@@ -33,7 +33,7 @@ public class TraitTreeBoard : MonoBehaviour
             RectTransform rect = nodeView.GetComponent<RectTransform>();
             rect.anchoredPosition = nodeData.boardPosition;
 
-            nodeView.Init(nodeData, treeRuntime);
+            nodeView.Init(nodeData, treeRuntime, this);
 
             spawnedNodes.Add(nodeData.id, nodeView);
         }
@@ -55,6 +55,14 @@ public class TraitTreeBoard : MonoBehaviour
                     spawnedNodes[nodeData.id].RectTransform
                 );
             }
+        }
+    }
+
+    public void RefreshAllNodes()
+    {
+        foreach (TraitNodeView nodeView in spawnedNodes.Values)
+        {
+            nodeView.Refresh();
         }
     }
 
